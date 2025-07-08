@@ -44,6 +44,7 @@ use Magento\Framework\Stdlib\DateTime\TimezoneInterface;
 use Magento\Store\Model\ScopeInterface;
 use Mageplaza\CronSchedule\Helper\Data;
 use Psr\Log\LoggerInterface;
+use Laminas\Http\PhpEnvironment\Request as Environment;
 
 /**
  * Class ProcessCronQueueObserver
@@ -81,6 +82,7 @@ class ProcessCronQueueObserver extends \Magento\Cron\Observer\ProcessCronQueueOb
      * @param DeadlockRetrierInterface $retrier
      * @param TimezoneInterface $localeDate
      * @param ResolverInterface $localeResolver
+     * @param Environment $environment
      */
     public function __construct(
         ObjectManagerInterface $objectManager,
@@ -98,6 +100,7 @@ class ProcessCronQueueObserver extends \Magento\Cron\Observer\ProcessCronQueueOb
         LockManagerInterface $lockManager,
         ManagerInterface $eventManager,
         DeadlockRetrierInterface $retrier,
+        Environment $environment,
         TimezoneInterface $localeDate,
         ResolverInterface $localeResolver
     ) {
@@ -119,7 +122,8 @@ class ProcessCronQueueObserver extends \Magento\Cron\Observer\ProcessCronQueueOb
             $statFactory,
             $lockManager,
             $eventManager,
-            $retrier
+            $retrier,
+            $environment
         );
     }
 
