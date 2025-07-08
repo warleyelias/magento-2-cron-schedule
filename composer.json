@@ -1,5 +1,5 @@
 {
-  "name": "mageplaza/module-cron-schedule",
+  "name": "warleyelias/module-cron-schedule",
   "description": "Magento 2 Cron Schedule Extension",
   "require": {
     "mageplaza/module-core": "^1.4.12"
